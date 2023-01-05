@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--layout-color-2);
+    border-top: 2px dashed var(--layout-color-2);
+}
+
+.link {
+    color: var(--primary-color);
+}
+
+.link:hover {
+    color: var(--primary-color-hovered);
+}

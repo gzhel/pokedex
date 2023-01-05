@@ -1,0 +1,38 @@
+.header {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed var(--layout-color-2);
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.logo span {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navItem {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.navItem:hover {
+    color: rgba(27, 3, 163, 0.5);
+}

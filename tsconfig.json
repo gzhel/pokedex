@@ -22,7 +22,11 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@layouts/*": ["./app/layouts/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
