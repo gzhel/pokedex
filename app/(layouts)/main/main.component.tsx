@@ -1,12 +1,17 @@
 import React, { FC } from "react";
 import s from "./main.module.css";
+import cn from "classnames";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 const MainLayout: FC<MainLayoutProps> = (props) => {
-  return <main className={s.main}>{props.children}</main>;
+  return (
+    <main className={cn("w-full pl-40 pr-40 pb-5 pt-5", s.main)}>
+      {props.children}
+    </main>
+  );
 };
 
 export default MainLayout;

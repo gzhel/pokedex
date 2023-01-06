@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { default as Head } from "./head";
-import { default as Header } from "@layouts/header";
-import { default as Footer } from "@layouts/footer";
-import { default as MainLayout } from "@layouts/main";
+import { default as Header } from "@layouts/header/header.component";
+import { default as Footer } from "@layouts/footer/footer.component";
+import { default as MainLayout } from "@layouts/main/main.component";
 import "./globals.css";
 
 interface RootLayoutProps {

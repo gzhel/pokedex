@@ -4,8 +4,8 @@ import cn from "classnames";
 
 const Footer: FC = () => {
   return (
-    <footer className={cn("w-full text-sm pb-5 pt-5", s.footer)}>
-      <span>
+    <footer className={cn("w-full pl-40 pr-40 pb-5 pt-5", s.footer)}>
+      <span className={"text-sm"}>
         Developed by{" "}
         <a
           href="https://gzhel.vercel.app"
