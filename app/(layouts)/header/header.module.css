@@ -1,10 +1,16 @@
 .header {
+    --transition-curve: cubic-bezier(0.05, 0, 0.2, 1);
     position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed var(--layout-color-2);
+    background-color: var(--layout-color-1);
+    /* box-shadow: rgb(229 232 235 / 0%) 0 1px 0 0; */
+    box-shadow: rgb(229 232 235) 0 1px 0 0;
+    z-index: 120;
+    transition: top 0.5s var(--transition-curve), background-color 0.2s var(--transition-curve), box-shadow 0.2s var(--transition-curve),color 0.2s var(--transition-curve);
 }
 
 .logo {
@@ -28,11 +34,12 @@
     align-items: center;
 }
 
-.navItem {
+.navItem a {
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--text-color-base);
 }
 
-.navItem:hover {
-    color: rgba(27, 3, 163, 0.5);
+.navItem a:hover {
+    transition: 0.5s;
+    color: var(--text-color-base-hovered);
 }

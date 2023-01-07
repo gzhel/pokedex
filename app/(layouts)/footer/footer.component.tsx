@@ -13,7 +13,7 @@ const Footer: FC = () => {
           rel="noreferrer"
           className={s.link}
         >
-          Gregory Zhelyabin
+          <span className={s.bigDaddy}>Gregory Zhelyabin</span>
         </a>{" "}
         in 2023
       </span>

@@ -2,14 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--layout-color-2);
-    border-top: 2px dashed var(--layout-color-2);
+    color: var(--text-color-light);
+    background-color: rgb(24, 104, 183);
 }
 
 .link {
-    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 .link:hover {
-    color: var(--primary-color-hovered);
+    transition: 0.5s;
+    color: var(--text-color-light-hovered);
 }
