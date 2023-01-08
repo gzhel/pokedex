@@ -14,6 +14,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("https://raw.githubusercontent.com/gzhel/pokedex/main/public/card_background.jpeg");
+  background-size: cover;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
 }
 
 .cardLayout {
@@ -21,8 +24,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
-  width: 280px;
-  height: 400px;
+  width: 270px;
+  height: 390px;
   border: 2px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to left, #8693AB, #BDD4E7);

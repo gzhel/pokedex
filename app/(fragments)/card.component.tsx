@@ -25,7 +25,7 @@ const PromoCard = (props: PromoCardProps) => {
             {cardName}
           </Typography>
           <div className={cn("py-4", s.cardPicture)}>
-            <Image src={cardArtwork} alt={cardName} width={280} height={280} />{" "}
+            <Image src={cardArtwork} alt={cardName} width={270} height={270} />{" "}
           </div>
           <Typography
             tag={"h2"}
