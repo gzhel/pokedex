@@ -4,12 +4,31 @@ import { wrapSuccess, trpc } from "../utils";
 
 export const pokemonRouter = trpc.router({
   getCharacters: trpc.procedure
-    .input(z.object({ page: z.number() }))
+    .input(z.object({ page: z.number(), amount: z.number() }))
     .query(async ({ input }) => {
-      const offset = input.page * 20;
+      const offset = input.page * input.amount;
       const charactersResponse = await axios<Result<CharacterInfo>>(
-        `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`
+        `https://pokeapi.co/api/v2/pokemon/?limit=${input.amount}&offset=${offset}`
       );
-      return wrapSuccess(charactersResponse);
+
+      const charactersUrls = charactersResponse.data.results.map(
+        (ch) => ch.url
+      );
+
+      const detailedCharactersResponse = await Promise.all(
+        charactersUrls.map(async (url) => await axios<any>(url))
+      ).then((response) => response);
+
+      const filteredCharactersResponse = detailedCharactersResponse.map(
+        (ch) => {
+          return {
+            id: ch.data.id,
+            name: ch.data.name,
+            sprites: ch.data.sprites,
+          };
+        }
+      );
+
+      return wrapSuccess(filteredCharactersResponse);
     }),
 });

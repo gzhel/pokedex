@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import cn from "classnames";
 import s from "./typography.module.scss";
 
@@ -12,7 +12,7 @@ type Variant =
   | "textSmall";
 
 interface TypographyProps {
-  children: string;
+  children: string | React.ReactNode;
   tag: Tag;
   variant: Variant;
   className?: string;

@@ -3,9 +3,15 @@ import s from "./card.module.scss";
 import Image from "next/image";
 import cn from "classnames";
 
-const PromoCard = () => {
-  const url =
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+interface PromoCardProps {
+  character: any;
+}
+
+const PromoCard = (props: PromoCardProps) => {
+  const character = props.character;
+  const cardName = character.name[0].toUpperCase() + character.name.slice(1);
+  const cardId = String(character.id).padStart(4, "0");
+  const cardArtwork = character.sprites.other["official-artwork"].front_default;
 
   return (
     <div className={s.layout}>
@@ -13,26 +19,20 @@ const PromoCard = () => {
         <div className={s.cardLayout}>
           <Typography
             tag={"h2"}
-            variant={"titleBig"}
-            className={cn("p-2", s.cardTitle)}
+            variant={"titleSmall"}
+            className={cn("py-1 px-6", s.cardText)}
           >
-            Pikachu / 0025
+            {cardName}
           </Typography>
-          <div className={s.cardPicture}>
-            <Image
-              src={url + 25 + ".png"}
-              alt={"Pikachu"}
-              width={200}
-              height={200}
-            />{" "}
+          <div className={cn("py-4", s.cardPicture)}>
+            <Image src={cardArtwork} alt={cardName} width={280} height={280} />{" "}
           </div>
           <Typography
-            tag={"p"}
-            variant={"textSmall"}
-            className={cn("pt-2 pr-2 pb-4 pl-2", s.cardDescription)}
+            tag={"h2"}
+            variant={"titleSmall"}
+            className={cn("py-1 px-6", s.cardText)}
           >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
-            blanditiis cum dolore dolorem dolores est eveniet facilis
+            {cardId}
           </Typography>
         </div>
       </div>
