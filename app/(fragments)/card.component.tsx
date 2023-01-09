@@ -4,7 +4,7 @@ import Image from "next/image";
 import cn from "classnames";
 
 interface PromoCardProps {
-  character: any;
+  character: CharacterParsed;
 }
 
 const PromoCard = (props: PromoCardProps) => {

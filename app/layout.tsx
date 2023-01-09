@@ -16,6 +16,7 @@ const RootLayout: FC<RootLayoutProps> = (props) => {
         <title>Pokedex</title>
       </Head>
       <body>
+        {/* @ts-expect-error Server Component */}
         <Header />
         <Main children={props.children} />
         <Footer />

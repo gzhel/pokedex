@@ -18,24 +18,15 @@ interface CharacterInfo {
   url: string;
 }
 
+interface CharacterParsed {
+  id: number;
+  name: string;
+  sprites: any;
+}
+
 //
 
 interface CharacterEntity {
   name: string;
   url: string;
-}
-
-interface Character {
-  id: string;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: CharacterEntity;
-  location: CharacterEntity;
-  image: string;
-  episode: string[];
-  url: string;
-  created: string;
 }

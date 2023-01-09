@@ -1,12 +1,17 @@
-import { FC } from "react";
 import cn from "classnames";
 import s from "./header.module.css";
 import Link from "next/link";
 import { ROUTES } from "@utils/constants";
 import { default as Logo } from "@layouts/header/(fragments)/logo.component";
 import { default as PreviewSlider } from "@layouts/header/(fragments)/slider.component";
+import { caller } from "../../../server/routes";
 
-const Header: FC = () => {
+const Header: () => Promise<JSX.Element> = async () => {
+  const { response: characters } = await caller.getCharacters({
+    page: Math.floor(Math.random() * 100),
+    amount: 8,
+  });
+
   return (
     <>
       <header className={cn("w-full pl-40 pr-40 pt-2.5 pb-2.5", s.header)}>
@@ -22,7 +27,7 @@ const Header: FC = () => {
           </ul>
         </nav>
       </header>
-      <PreviewSlider />
+      <PreviewSlider characters={characters} />
     </>
   );
 };

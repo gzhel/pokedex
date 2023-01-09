@@ -3,12 +3,9 @@ import { default as PromoCard } from "./(fragments)/card.component";
 import { caller } from "../server/routes";
 
 const PreviewPage: () => Promise<JSX.Element> = async () => {
-  const character = await caller
-    .getCharacters({
-      page: Math.floor(Math.random() * 1000),
-      amount: 1,
-    })
-    .then((characters) => characters.response[0]);
+  const { response: character } = await caller.getCharacter({
+    id: Math.floor(Math.random() * 1000) || 1,
+  });
 
   return (
     <section className={"w-full h-full flex flex-col"}>

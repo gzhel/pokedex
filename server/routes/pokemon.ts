@@ -31,4 +31,17 @@ export const pokemonRouter = trpc.router({
 
       return wrapSuccess(filteredCharactersResponse);
     }),
+  getCharacter: trpc.procedure
+    .input(z.object({ id: z.number() || z.string() }))
+    .query(async ({ input }) => {
+      const characterResponse = await axios<any>(
+        `https://pokeapi.co/api/v2/pokemon/${input.id}`
+      );
+
+      return wrapSuccess({
+        id: characterResponse.data.id,
+        name: characterResponse.data.name,
+        sprites: characterResponse.data.sprites,
+      });
+    }),
 });
