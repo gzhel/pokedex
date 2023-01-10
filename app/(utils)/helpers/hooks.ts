@@ -3,9 +3,9 @@
 import { RefObject, useState } from "react";
 import { useEventListener } from "usehooks-ts";
 
-export function useHover<T extends HTMLElement = HTMLElement>(
+export const useHover = <T extends HTMLElement = HTMLElement>(
   elementRef: RefObject<T>
-): boolean {
+): boolean => {
   const [value, setValue] = useState<boolean>(false);
 
   const handleMouseEnter = () => setValue(true);
@@ -15,4 +15,4 @@ export function useHover<T extends HTMLElement = HTMLElement>(
   useEventListener("mouseleave", handleMouseLeave, elementRef);
 
   return value;
-}
+};

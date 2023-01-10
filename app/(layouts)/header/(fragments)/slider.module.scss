@@ -16,8 +16,13 @@
   justify-content: center;
   align-items: center;
   flex: 1 1 0;
-  width: 10%;
   height: 80px;
+
+  &:hover img {
+    transition: 0.5s;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .glass {

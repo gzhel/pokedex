@@ -4,15 +4,20 @@ import cn from "classnames";
 import s from "@layouts/header/(fragments)/slider.module.scss";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { checkMobile } from "@utils/helpers/screen";
 
 interface PreviewSliderProps {
   characters: CharacterParsed[];
 }
 
 const PreviewSlider = (props: PreviewSliderProps) => {
+  const isMobile = checkMobile();
+
   const pathname = usePathname();
 
-  const characters = props?.characters;
+  const characters = isMobile
+    ? props?.characters.slice(0, 2)
+    : props?.characters;
 
   return pathname !== "/" ? null : (
     <div className={s.layout}>
