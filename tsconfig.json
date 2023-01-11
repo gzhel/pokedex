@@ -28,6 +28,7 @@
       "@layouts/*": ["./app/(layouts)/*"],
       "@typography/*": ["./app/(typography)/*"],
       "@utils/*": ["./app/(utils)/*"],
+      "@server/*": ["./server/*"],
     }
   },
   "include": [

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
 interface CollectiblesLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const CollectiblesLayout: FC<CollectiblesLayoutProps> = (props) => {

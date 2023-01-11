@@ -10,6 +10,16 @@ import {
   useTransform,
 } from "framer-motion";
 import { useHover } from "@utils/helpers/hooks";
+import { PromoCardProps } from "./card.component";
+
+export const useCardModel = (props: PromoCardProps) => {
+  const character = props.character;
+  const cardName = character.name[0].toUpperCase() + character.name.slice(1);
+  const cardId = String(character.id).padStart(4, "0");
+  const cardArtwork = character.sprites.other["official-artwork"].front_default;
+
+  return { cardName, cardId, cardArtwork };
+};
 
 export const useCardAnimation = () => {
   const calcX = (y: number, ly: number) => {
@@ -31,7 +41,7 @@ export const useCardAnimation = () => {
     };
   }, []);
 
-  const domTarget = useRef(null);
+  const domTarget = useRef<HTMLDivElement>(null);
 
   const [{ x, y, rotateX, rotateY, rotateZ, zoom, scale }, api] = useSpring(
     () => ({

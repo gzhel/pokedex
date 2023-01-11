@@ -22,6 +22,8 @@ export const pokemonRouter = trpc.router({
           id: ch.data.id,
           name: ch.data.name,
           sprites: ch.data.sprites,
+          height: ch.data.height,
+          weight: ch.data.weight,
         };
       });
 
@@ -38,6 +40,8 @@ export const pokemonRouter = trpc.router({
         id: response.data.id,
         name: response.data.name,
         sprites: response.data.sprites,
+        height: response.data.height,
+        weight: response.data.weight,
       };
 
       return wrapSuccess(character);

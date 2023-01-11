@@ -1,11 +1,8 @@
 import { FC } from "react";
+import { redirect } from "next/navigation";
 
 const CollectiblesPage: FC = () => {
-  return (
-    <section>
-      <h1>Collectibles page</h1>
-    </section>
-  );
+  return redirect("/collectibles/1");
 };
 
 export default CollectiblesPage;

@@ -1,6 +1,6 @@
-import { default as PromoDescription } from "./(fragments)/promo.component";
-import { default as PromoCard } from "./(fragments)/card.component";
-import { caller } from "../server/routes";
+import { default as PromoDescription } from "./(fragments)/description.component";
+import { default as PromoCard } from "./(components)/card.component";
+import { caller } from "@server/routes";
 import { CHARACTERS_AMOUNT } from "@utils/constants";
 
 const PreviewPage: () => Promise<JSX.Element> = async () => {
@@ -12,7 +12,7 @@ const PreviewPage: () => Promise<JSX.Element> = async () => {
     <section className={"w-full h-full flex flex-col"}>
       <div className={"flex flex-row flex-1 justify-between"}>
         <PromoDescription />
-        <PromoCard character={character} />
+        <PromoCard className={"w-6/12"} character={character} />
       </div>
     </section>
   );

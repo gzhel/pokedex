@@ -22,6 +22,8 @@ interface CharacterParsed {
   id: number;
   name: string;
   sprites: any;
+  height?: number;
+  weight?: number;
 }
 
 //

@@ -1,8 +1,9 @@
-import { Typography } from "@typography/typography";
-import s from "./promo.module.scss";
+import { FC } from "react";
 import cn from "classnames";
+import { Typography } from "@typography/typography";
+import s from "./description.module.scss";
 
-const PromoDescription = () => {
+const PromoDescription: FC = () => {
   return (
     <div className={s.layout}>
       <Typography
