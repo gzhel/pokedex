@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ROUTES } from "@utils/constants";
 import { default as Logo } from "@layouts/header/(fragments)/logo.component";
 import { default as PreviewSlider } from "@layouts/header/(fragments)/slider.component";
-import { caller } from "@server/routes";
+import { caller } from "@server/routers/_app";
 import { getRandomCharactersPage } from "@utils/helpers";
 
 const Header: () => Promise<JSX.Element> = async () => {

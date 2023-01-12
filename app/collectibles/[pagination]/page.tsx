@@ -1,4 +1,4 @@
-import { caller } from "@server/routes";
+import { caller } from "@server/routers/_app";
 import cn from "classnames";
 import s from "./index.module.scss";
 import Image from "next/image";

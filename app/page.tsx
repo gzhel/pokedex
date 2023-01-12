@@ -1,6 +1,6 @@
 import { default as PromoDescription } from "./(fragments)/description.component";
 import { default as PromoCard } from "./(components)/card.component";
-import { caller } from "@server/routes";
+import { caller } from "@server/routers/_app";
 import { CHARACTERS_AMOUNT } from "@utils/constants";
 
 const PreviewPage: () => Promise<JSX.Element> = async () => {
