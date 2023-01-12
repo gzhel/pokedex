@@ -2,6 +2,7 @@ import { caller } from "@server/routes";
 import s from "./index.module.scss";
 import PromoCard from "../../(components)/card.component";
 import cn from "classnames";
+import CharacterDetailsInfo from "./(fragments)/info.component";
 
 interface CollectiblesPaginationPageProps {
   params: {
@@ -15,17 +16,22 @@ const CharacterDetailsPage: (
   const { response: character } = await caller.getCharacter({
     id: +props.params.id,
   });
+  const { response: locations } = await caller.getLocationAreas({
+    id: +props.params.id,
+  });
+  const { response: habitat } = await caller.getHabitat({
+    id: +props.params.id,
+  });
 
   return (
     <section className={cn("w-full h-full", s.layout)}>
       <PromoCard character={character} />
       <div className={cn("py-6", s.divider)}></div>
-      <div className={s.description}>
-        <p>Name: {character.name}</p>
-        <p>ID: {character.id}</p>
-        <p>Height: {character.height}</p>
-        <p>Weight: {character.weight}</p>
-      </div>
+      <CharacterDetailsInfo
+        character={character}
+        locations={locations}
+        habitat={habitat}
+      />
     </section>
   );
 };

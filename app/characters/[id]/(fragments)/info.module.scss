@@ -1,0 +1,31 @@
+.coverBorder {
+  border-radius: 20px;
+  width: 300px;
+  height: 420px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://raw.githubusercontent.com/gzhel/pokedex/main/public/card_cover.png");
+  background-size: cover;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s;
+  will-change: transform;
+
+  &:hover {
+    box-shadow: 0 30px 100px -10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.coverLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 270px;
+  height: 390px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #8693AB, #BDD4E7);
+  background-color: rgba(255, 255, 255, 0.5);
+}

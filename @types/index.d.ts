@@ -26,6 +26,14 @@ interface CharacterParsed {
   weight?: number;
 }
 
+interface CharacterLocations {
+  locations: string[];
+}
+
+interface CharacterHabitat {
+  name: string;
+}
+
 //
 
 interface CharacterEntity {
