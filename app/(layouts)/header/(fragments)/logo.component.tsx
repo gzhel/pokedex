@@ -5,12 +5,13 @@ import cn from "classnames";
 import s from "@layouts/header/header.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@utils/constants";
 
 const Logo: FC = () => {
   const router = useRouter();
 
   const handleLogoClick = useCallback(() => {
-    router.push("/");
+    router.push(ROUTES.MAIN);
   }, []);
 
   return (

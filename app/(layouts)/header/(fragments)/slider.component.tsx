@@ -5,6 +5,7 @@ import s from "@layouts/header/(fragments)/slider.module.scss";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { checkMobile } from "@utils/helpers/screen";
+import { ROUTES } from "@utils/constants";
 
 interface PreviewSliderProps {
   characters: CharacterParsed[];
@@ -19,7 +20,7 @@ const PreviewSlider = (props: PreviewSliderProps) => {
     ? props?.characters.slice(0, 2)
     : props?.characters;
 
-  return pathname !== "/" ? null : (
+  return pathname !== ROUTES.MAIN ? null : (
     <div className={s.layout}>
       <div className={cn("px-5", s.row)}>
         {characters.map((ch) => (

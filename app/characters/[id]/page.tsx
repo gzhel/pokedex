@@ -14,15 +14,16 @@ interface CollectiblesPaginationPageProps {
 }
 
 const CharacterDetailsPage: FC<CollectiblesPaginationPageProps> = (props) => {
-  const { data: character, isLoading: isCharacterLoading } =
+  // I should to create hooks for every api query
+  const { data: characterRaw, isLoading: isCharacterLoading } =
     trpc.getCharacter.useQuery({
       id: +props.params.id,
     });
-  const { data: locations, isLoading: isLocationsLoading } =
+  const { data: locationsRaw, isLoading: isLocationsLoading } =
     trpc.getLocationAreas.useQuery({
       id: +props.params.id,
     });
-  const { data: habitat, isLoading: isHabitatLoading } =
+  const { data: habitatRaw, isLoading: isHabitatLoading } =
     trpc.getHabitat.useQuery({
       id: +props.params.id,
     });
@@ -30,22 +31,23 @@ const CharacterDetailsPage: FC<CollectiblesPaginationPageProps> = (props) => {
   const isLoading =
     isCharacterLoading || isLocationsLoading || isHabitatLoading;
 
+  const character = characterRaw?.response as CharacterParsed;
+  const locations = locationsRaw?.response as CharacterLocations;
+  const habitat = habitatRaw?.response as CharacterHabitat;
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
     <section className={cn("w-full h-full", s.layout)}>
-      {character?.response.name}
-      {locations?.response.locations}
-      {habitat?.response.name}
-      {/*<PromoCard character={character} />*/}
-      {/*<div className={cn("py-6", s.divider)}></div>*/}
-      {/*<CharacterDetailsInfo*/}
-      {/*  character={character}*/}
-      {/*  locations={locations}*/}
-      {/*  habitat={habitat}*/}
-      {/*/>*/}
+      <PromoCard character={character} />
+      <div className={cn("py-6", s.divider)}></div>
+      <CharacterDetailsInfo
+        character={character}
+        locations={locations}
+        habitat={habitat}
+      />
     </section>
   );
 };
